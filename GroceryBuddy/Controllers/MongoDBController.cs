@@ -8,7 +8,6 @@ using System.Web.Http;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
-using ProductsApp.Models;
 
 namespace ProductsApp.Controllers
 {

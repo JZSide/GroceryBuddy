@@ -27,15 +27,15 @@
               console.log(data_obj);
             // On success, 'data' contains a list of products.
               $.each(data_obj, function (key, item) {
-                // Add a list item for the product.
-              $('<li>', { text: item.Name }).appendTo($('#products'));
+                  // Add a list item for the product.
+              $('<li>', { text: formatItem(item) }).appendTo($('#products'));
             });
           });
     });
 
-    //function formatItem(item) {
-    //  return item.Name + ': $' + item.Price;
-    //}
+    function formatItem(item) {
+      return item.name + ': $' + item.price;
+    }
 
     function find() {
       var id = $('#prodId').val();
