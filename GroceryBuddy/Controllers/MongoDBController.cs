@@ -24,5 +24,17 @@ namespace ProductsApp.Controllers
             return Ok(retrieve.ToJson(new JsonWriterSettings { OutputMode = JsonOutputMode.Strict }));
         }
 
+        [HttpGet]
+        public IHttpActionResult getOne(int id)
+        {
+            var client = new MongoClient();
+            var database = client.GetDatabase("GroceryBuddy");
+            var collection = database.GetCollection<BsonDocument>("product");
+
+            var filter = Builders<BsonDocument>.Filter.Eq("id", id);
+            var retrieve = collection.Find(filter).First();
+            return Ok(retrieve.ToJson(new JsonWriterSettings { OutputMode = JsonOutputMode.Strict }));
+        }
+
     }
 }

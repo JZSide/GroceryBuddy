@@ -41,7 +41,8 @@
       var id = $('#prodId').val();
       $.getJSON(uri + '/' + id)
           .done(function (data) {
-            $('#product').text(formatItem(data));
+              var data_obj = JSON.parse(data);
+              $('#product').text(formatItem(data_obj));
           })
           .fail(function (jqXHR, textStatus, err) {
             $('#product').text('Error: ' + err);
